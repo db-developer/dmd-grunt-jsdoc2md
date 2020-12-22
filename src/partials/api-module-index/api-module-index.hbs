@@ -1,0 +1,9 @@
+{{#if (optionEquals "api-module-index-format" "dl")}}
+{{>api-module-index-dl}}
+{{else}}
+{{#if (optionEquals "api-module-index-format" "table")}}
+{{>api-module-index-table}}
+{{else}}
+{{>api-module-index-grouped}}
+{{/if}}
+{{/if}}

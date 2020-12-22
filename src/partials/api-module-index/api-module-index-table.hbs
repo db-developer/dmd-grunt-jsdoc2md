@@ -1,0 +1,24 @@
+{{#each this~}}
+{{#if @first~}}
+{{>heading-indent}}Modules
+
+<table>
+  <thead>
+    <tr>
+      <th>Module</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+{{/if~}}
+{{#if ( equals kind "module" )~}}
+    <tr>
+    <td>{{>sig-link-html}}</td>
+    <td>{{{md (inlineLinks description)}}}</td>
+    </tr>
+{{/if~}}
+{{#if @last~}}
+  </tbody>
+</table>
+
+{{/if~}}
+{{/each}}

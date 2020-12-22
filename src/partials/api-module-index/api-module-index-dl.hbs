@@ -1,0 +1,13 @@
+{{#each this~}}
+{{#if @first~}}{{>heading-indent}}Modules
+
+<dl>
+{{/if~}}
+{{#if ( equals kind "module" )~}}
+<dt>{{>sig-link-html}}</dt>
+<dd>{{{md (inlineLinks description)}}}</dd>
+{{/if~}}
+{{#if @last~}}</dl>
+
+{{/if~}}
+{{/each~}}

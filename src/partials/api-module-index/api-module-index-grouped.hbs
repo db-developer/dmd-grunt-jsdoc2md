@@ -1,0 +1,8 @@
+{{#each this~}}
+{{#if @first~}}{{>heading-indent}}Modules
+
+{{/if~}}
+{{#if ( equals kind "module" )~}}
+{{>api-member-index-grouped~}}
+{{/if~}}
+{{/each}}
