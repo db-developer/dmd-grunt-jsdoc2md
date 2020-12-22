@@ -9,12 +9,12 @@
  *//* eslint-disable-next-line */
 "use strict";
 
-const _STRINGS = { EXPORTS:  "exports" };
+const _STRINGS = { EXPORTS: "exports" }
 
 function index() {
   return {
-    partial: __dirname + "/../partial/**/*.hbs",
-    helper:  __dirname + "/../helper/*.js"
+    partial: __dirname + "/../partials/*.hbs",
+    helper:  __dirname + "/../helpers/*.js"
   };
 }
 

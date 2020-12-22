@@ -27,6 +27,11 @@ module.exports  = function ( grunt, options ) {
         },{
           expand: true,
           flatten: true,
+          src:  [ `src/lib/*.js` ],
+          dest: `${ options.BUILDDIR }/lib/`
+        },{
+          expand: true,
+          flatten: true,
           src:  [ `src/partials/**/*.hbs` ],
           dest: `${ options.BUILDDIR }/partials/`
         }

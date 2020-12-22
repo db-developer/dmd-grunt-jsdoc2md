@@ -9,16 +9,11 @@
  *//* eslint-disable-next-line */
 "use strict";
 
-const _STRINGS = {
-  EQUALS:   "equals",
-  SORT:     "sort"
-};
-
-function equals ( context1, context2, options ) {
+module.exports.equals = function equals ( context1, context2, options ) {
   return context1 === context2;
 }
 
-function sort( context, options ) {
+module.exports.sort = function sort( context, options ) {
   if ( options.hash.by ) {
        const  property = options.hash.by;
        const sorted    = [ ...context ].sort(( first, second ) => {
@@ -35,13 +30,3 @@ function sort( context, options ) {
   }
   else return options.fn( context );
 }
-
-/* eslint-disable */
-// Module exports:
-Object.defineProperty( module.exports, _STRINGS.EQUALS, {
-       value:    equals,
-       writable: false, enumerable: true, configurable: false });
-Object.defineProperty( module.exports, _STRINGS.SORT, {
-       value:    sort,
-       writable: false, enumerable: true, configurable: false });
-/* eslint-enable */

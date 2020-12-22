@@ -41,7 +41,7 @@ module.exports = function( grunt ) {
   grunt.registerTask( strings.DEFAULT, [ strings.ALL ]);
 
   // run deploy
-  grunt.registerTask( strings.DEPLOY,  [ strings.TEST, strings.BUILD, `${ strings.COPY }:deploy` ]);
+  grunt.registerTask( strings.DEPLOY,  [ strings.TEST, strings.BUILD,`${ strings.COPY }:deploy` ]);
 
   // run dist
   grunt.registerTask( strings.DIST,    [ strings.TEST, strings.BUILD, "move:distribute" ]);
