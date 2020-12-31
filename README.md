@@ -1,5 +1,5 @@
 # dmd-grunt-jsdoc2md
-Plugin for dmd and dmd-grunt-jsdoc2md which provides an api index and more readable docs.  
+Plugin for dmd and grunt-jsdoc2md which provides an api index and more readable docs.  
 
 [![npm version](https://img.shields.io/npm/v/dmd-grunt-jsdoc2md?color=blue)](https://www.npmjs.com/package/dmd-grunt-jsdoc2md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
