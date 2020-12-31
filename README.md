@@ -12,8 +12,7 @@ Plugin for dmd and dmd-grunt-jsdoc2md which provides an api index and more reada
 
 ## getting started ##
 
-This guide assumes, that you are familiar with the use of [npm](https://npmjs.com "Homepage of npm") and [grunt](https://gruntjs.com "Homepage of grunt").  
-The plugin can be installed by the following command:
+This guide assumes, that you are familiar with the use of [npm](https://npmjs.com "Homepage of npm").
 
 <code>npm install dmd-grunt-jsdoc2md --save-dev</code>
 
