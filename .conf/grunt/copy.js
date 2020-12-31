@@ -16,46 +16,35 @@ module.exports  = function ( grunt, options ) {
     build: {
       files: [
         {
-          src:  [ "*.md", "package.json", "LICENSE" ],
-          dest: `${ options.BUILDDIR }/`
+          src:      [ "*.md", "package.json", "LICENSE" ],
+          dest:     `${ options.BUILDDIR }/`
         },{
-          expand: true,
-          flatten: true,
-          filter: "isFile",
-          src:  [ `src/helpers/**/*.js` ],
-          dest: `${ options.BUILDDIR }/helpers/`
+          expand:   true,
+          flatten:  true,
+          filter:   "isFile",
+          src:      [ `src/helpers/**/*.js` ],
+          dest:     `${ options.BUILDDIR }/helpers/`
         },{
-          expand: true,
-          flatten: true,
-          src:  [ `src/lib/*.js` ],
-          dest: `${ options.BUILDDIR }/lib/`
+          expand:   true,
+          flatten:  true,
+          src:      [ `src/lib/*.js` ],
+          dest:     `${ options.BUILDDIR }/lib/`
         },{
-          expand: true,
-          flatten: true,
-          src:  [ `src/partials/**/*.hbs` ],
-          dest: `${ options.BUILDDIR }/partials/`
+          expand:   true,
+          flatten:  true,
+          src:      [ `src/partials/**/*.hbs` ],
+          dest:     `${ options.BUILDDIR }/partials/`
         }
       ]
     },
     deploy: {
       files: [
         {
-          src:  `${ PACKAGE }-${ VERSION }.${ TGZ }`,
+          src:  `${ options.DISTDIR }/${ PACKAGE }-${ VERSION }.${ TGZ }`,
           dest: `${ PKGSDIR }/${ PACKAGE }-${ VERSION }.${ TGZ }`
         }, {
-          src:  `${ PACKAGE }-${ VERSION }.${ TGZ }`,
+          src:  `${ options.DISTDIR }/${ PACKAGE }-${ VERSION }.${ TGZ }`,
           dest: `${ PKGSDIR }/${ PACKAGE }-${ LATEST  }.${ TGZ }`
-        }
-      ]
-    },
-    distribute: {
-      files: [
-        {
-          src:  `${ PACKAGE }-${ VERSION }.${ TGZ }`,
-          dest: `${ options.DISTDIR }/${ PACKAGE }-${ VERSION }.${ TGZ }`
-        }, {
-          src:  `${ PACKAGE }-${ VERSION }.${ TGZ }`,
-          dest: `${ options.DISTDIR }/${ PACKAGE }-${ LATEST  }.${ TGZ }`
         }
       ]
     }

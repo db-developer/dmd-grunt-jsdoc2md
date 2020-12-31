@@ -24,26 +24,24 @@ module.exports = function( grunt ) {
   require( "load-grunt-tasks"  )( grunt );
 
   // run lint and all tests by default before packaging
-  grunt.registerTask( strings.ALL,     [ strings.BUILD, `${ strings.COPY }:deploy`, "move:distribute" ]);
+  grunt.registerTask( strings.ALL,     [ strings.BUILD, strings.DIST, strings.DEPLOY ]);
 
   // run lint and all tests by default before packaging
-  grunt.registerTask( strings.BUILD,   [ strings.BUILDRO ]);
+  grunt.registerTask( strings.BUILD,   [ strings.ESLINT,   `${ strings.CLEAN }:build`,
+                                         strings.MKDIR,    `${ strings.COPY  }:build`,
+                                         strings.JSONFILE, strings.BUILDRO ]);
 
-  grunt.registerTask( strings.BUILDWP, [ strings.ESLINT, `${ strings.CLEAN }:build`, strings.MKDIR,
-                                         `${ strings.COPY }:build`, strings.JSONFILE,
-                                         "webpack:build", "shell:npm_pack" ]);
+  grunt.registerTask( strings.BUILDWP, [ strings.WEBPACK, "shell:npm_pack" ]);
 
-  grunt.registerTask( strings.BUILDRO, [ strings.ESLINT, `${ strings.CLEAN }:build`, strings.MKDIR,
-                                         `${ strings.COPY }:build`, strings.JSONFILE,
-                                         "rollup:build", "shell:npm_pack" ]);
+  grunt.registerTask( strings.BUILDRO, [ strings.ROLLUP,  "shell:npm_pack" ]);
 
   // run default
   grunt.registerTask( strings.DEFAULT, [ strings.ALL ]);
 
-  // run deploy
-  grunt.registerTask( strings.DEPLOY,  [ strings.TEST, strings.BUILD,`${ strings.COPY }:deploy` ]);
+  // run deploy: copy current.tgz from dist to _packages_ current.tgz & latest.tgz
+  grunt.registerTask( strings.DEPLOY,  [ `${ strings.COPY }:deploy` ]);
 
-  // run dist
-  grunt.registerTask( strings.DIST,    [ strings.TEST, strings.BUILD, "move:distribute" ]);
+  // run dist: clean dist and move current.tgz from cwd to dist
+  grunt.registerTask( strings.DIST,    [ `${ strings.CLEAN }:dist`, strings.MOVE ]);
 
 };
