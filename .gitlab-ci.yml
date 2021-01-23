@@ -26,11 +26,7 @@ test:
     - docker
 
   script:
-    - npm run test
-
-  artifacts:
-    reports:
-      cobertura: dist/coverage/cobertura-coverage.xml
+    - echo No tests to run
 
 cleanup:
   stage: cleanup
