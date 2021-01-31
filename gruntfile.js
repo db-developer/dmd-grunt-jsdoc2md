@@ -24,16 +24,17 @@ module.exports = function( grunt ) {
   require( "load-grunt-tasks"  )( grunt );
 
   // run lint and all tests by default before packaging
-  grunt.registerTask( strings.ALL,     [ strings.BUILD, strings.DIST, strings.DEPLOY ]);
+  grunt.registerTask( strings.ALL,     [ strings.CHKOUTDATED, strings.BUILD, strings.DIST,
+                                         strings.DEPLOY ]);
 
   // run lint and all tests by default before packaging
-  grunt.registerTask( strings.BUILD,   [ strings.ESLINT,   `${ strings.CLEAN }:build`,
-                                         strings.MKDIR,    `${ strings.COPY  }:build`,
-                                         strings.JSONFILE, strings.BUILDRO ]);
+  grunt.registerTask( strings.BUILD,   [ strings.ESLINT,      `${ strings.CLEAN }:build`,
+                                         strings.MKDIR,       `${ strings.COPY  }:build`,
+                                         strings.JSONFILE,    strings.BUILDRO ]);
 
-  grunt.registerTask( strings.BUILDWP, [ strings.WEBPACK, "shell:npm_pack" ]);
+  grunt.registerTask( strings.BUILDWP, [ strings.WEBPACK,     "shell:npm_pack" ]);
 
-  grunt.registerTask( strings.BUILDRO, [ strings.ROLLUP,  "shell:npm_pack" ]);
+  grunt.registerTask( strings.BUILDRO, [ strings.ROLLUP,      "shell:npm_pack" ]);
 
   // run default
   grunt.registerTask( strings.DEFAULT, [ strings.ALL ]);
