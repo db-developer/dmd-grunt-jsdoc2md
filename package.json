@@ -55,6 +55,6 @@
     "webpack": "^4.44.2"
   },
   "dependencies": {
-    "jsdoc-to-markdown": "^6.0.1"
+    "jsdoc-to-markdown": "^7.0.0"
   }
 }
