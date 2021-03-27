@@ -16,10 +16,7 @@ module.exports = function ( grunt, options ) {
       merge: {
         "main":             "lib",
         "scripts":          undefined,
-        "devDependencies":  undefined,
-        "peerDependencies": {
-            "jsdoc-to-markdown": "^6.0.x"
-        }
+        "devDependencies":  undefined
       }
     }
   }
