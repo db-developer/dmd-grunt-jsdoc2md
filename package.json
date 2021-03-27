@@ -1,6 +1,6 @@
 {
   "name": "dmd-grunt-jsdoc2md",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Plugin for dmd and dmd-grunt-jsdoc2md which provides an api index and more readable docs.",
   "author": "Dirk Brenckmann <db.developer@gmx.de>",
   "license": "MIT",
