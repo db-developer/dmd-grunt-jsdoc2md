@@ -10,6 +10,8 @@ Plugin for dmd and grunt-jsdoc2md which provides an api index and more readable 
 * [Getting started guide](#getting-started)
 * [Usage](#usage)
 
+[Changelog](CHANGELOG.md)
+
 ## getting started ##
 
 This guide assumes, you are familiar with the use of [npm](https://npmjs.com "Homepage of npm").
