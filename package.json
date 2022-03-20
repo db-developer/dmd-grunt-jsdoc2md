@@ -6,7 +6,7 @@
   "license": "MIT",
   "engineStrict": true,
   "engines": {
-    "node": ">=12"
+    "node": ">=14"
   },
   "main": "src/lib",
   "scripts": {
@@ -49,7 +49,7 @@
     "grunt-mkdir": "^1.1.0",
     "grunt-move": "^1.0.3",
     "grunt-rollup": "^11.9.0",
-    "grunt-shell": "^3.0.1",
+    "grunt-shell": "^4.0.0",
     "grunt-webpack": "^5.0.0",
     "load-grunt-config": "^4.0.1",
     "load-grunt-tasks": "^5.1.0",
