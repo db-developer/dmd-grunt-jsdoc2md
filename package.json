@@ -35,7 +35,7 @@
   },
   "homepage": "https://www.slashlib.org/?page_id=508",
   "devDependencies": {
-    "@babel/core": "^7.17.10",
+    "@babel/core": "^7.18.9",
     "@rollup/plugin-commonjs": "^22.0.1",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "babel-loader": "^8.2.5",
