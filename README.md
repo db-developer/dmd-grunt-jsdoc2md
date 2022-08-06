@@ -4,7 +4,6 @@ Plugin for dmd and grunt-jsdoc2md which provides an api index and more readable 
 [![npm version](https://img.shields.io/npm/v/dmd-grunt-jsdoc2md?color=blue)](https://www.npmjs.com/package/dmd-grunt-jsdoc2md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](https://gruntjs.com/)
-[![dependencies](https://david-dm.org/db-developer/dmd-grunt-jsdoc2md.svg)](https://david-dm.org/)
 [![dependencies](https://img.shields.io/librariesio/release/npm/dmd-grunt-jsdoc2md)](https://libraries.io/)
 
 ## content ##
