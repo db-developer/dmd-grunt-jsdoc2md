@@ -15,6 +15,14 @@ Dropped support for nodejs versions prior 12 see: https://nodejs.org/en/about/re
 
 - No Fixes yet
 
+## [1.1.0] - 2024-07-01
+
+Updated dependencies (versions) in package.json
+Dropped support for nodejs versions prior 18 see: https://nodejs.org/en/about/releases/
+Changed eslint config file to flat
+Added eslint settings for vscode (using older eslint version than grunt)
+Moved 'old' (conflicting) eslint config files for vscode to .conf/vscode
+
 ## [1.0.0] - 2021-07-28
 
 Switched to a stable major release number. No breaking changes.
