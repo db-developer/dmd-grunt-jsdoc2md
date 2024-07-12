@@ -6,7 +6,7 @@
   "license": "MIT",
   "engineStrict": true,
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "main": "src/lib",
   "scripts": {
@@ -48,13 +48,13 @@
     "grunt-contrib-clean": "^2.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-eslint": "^25.0.0",
-    "grunt-jsonfile": "^1.2.0",
+    "grunt-jsonfile": "^1.2.1",
     "grunt-mkdir": "^1.1.0",
     "grunt-rollup": "^12.0.0",
     "grunt-webpack": "^6.0.0",
     "load-grunt-config": "^4.0.1",
     "load-grunt-tasks": "^5.1.0",
-    "webpack": "^5.88.2"
+    "webpack": "^5.93.0"
   },
   "dependencies": {
     "jsdoc-to-markdown": "^8.0.1"
