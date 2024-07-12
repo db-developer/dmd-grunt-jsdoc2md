@@ -15,6 +15,10 @@ Dropped support for nodejs versions prior 12 see: https://nodejs.org/en/about/re
 
 - No Fixes yet
 
+## [1.1.1] - 2024-07-01
+
+ Changed some developer dependencies
+
 ## [1.1.0] - 2024-07-01
 
 Updated dependencies (versions) in package.json

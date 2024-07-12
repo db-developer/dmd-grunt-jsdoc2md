@@ -32,9 +32,9 @@ module.exports = function( grunt ) {
                                          strings.MKDIR,       `${ strings.COPY  }:build`,
                                          strings.JSONFILE,    strings.BUILDRO ]);
 
-  grunt.registerTask( strings.BUILDWP, [ strings.WEBPACK,     "shell:npm_pack" ]);
+  grunt.registerTask( strings.BUILDWP, [ strings.WEBPACK ]);
 
-  grunt.registerTask( strings.BUILDRO, [ strings.ROLLUP,      "shell:npm_pack" ]);
+  grunt.registerTask( strings.BUILDRO, [ strings.ROLLUP  ]);
 
   // run default
   grunt.registerTask( strings.DEFAULT, [ strings.ALL ]);
@@ -43,6 +43,6 @@ module.exports = function( grunt ) {
   grunt.registerTask( strings.DEPLOY,  [ `${ strings.COPY }:deploy` ]);
 
   // run dist: clean dist and move current.tgz from cwd to dist
-  grunt.registerTask( strings.DIST,    [ `${ strings.CLEAN }:dist`, strings.MOVE ]);
+  grunt.registerTask( strings.DIST,    [ `${ strings.CLEAN }:dist`, `${ strings.CALL_NPM }:pack` ]);
 
 };
