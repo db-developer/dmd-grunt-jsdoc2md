@@ -33,6 +33,5 @@ module.exports = {
   SRC:          "src",
   TEMPLATE:     "template",
   TEST:         "test",
-  TMP:          "tmp",
-  WEBPACK:      "webpack"
+  TMP:          "tmp"
 }

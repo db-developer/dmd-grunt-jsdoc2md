@@ -51,10 +51,8 @@
     "grunt-jsonfile": "^1.2.1",
     "grunt-mkdir": "^1.1.0",
     "grunt-rollup": "^12.0.0",
-    "grunt-webpack": "^7.0.1",
     "load-grunt-config": "^4.0.1",
-    "load-grunt-tasks": "^5.1.0",
-    "webpack": "^5.104.1"
+    "load-grunt-tasks": "^5.1.0"
   },
   "dependencies": {
     "jsdoc-to-markdown": "^9.1.3"

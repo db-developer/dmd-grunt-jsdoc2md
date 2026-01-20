@@ -1,35 +1,53 @@
 # dmd-grunt-jsdoc2md
-Plugin for dmd and grunt-jsdoc2md which provides an api index and more readable docs.  
+
+A **dmd template extension** for **grunt-jsdoc2md** that generates a global, navigable API index across multiple Markdown files produced from JSDoc.
+
+This package does **not** generate documentation by itself. Instead, it extends the dmd render phase with additional helpers and Handlebars partials that operate on the complete JSDoc symbol model.
 
 [![npm version](https://img.shields.io/npm/v/dmd-grunt-jsdoc2md?color=blue)](https://www.npmjs.com/package/dmd-grunt-jsdoc2md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](https://gruntjs.com/)
 [![dependencies](https://img.shields.io/librariesio/release/npm/dmd-grunt-jsdoc2md)](https://libraries.io/)
 
-## content ##
+## Contents
 
-* [Getting started guide](#getting-started)
-* [Usage](#usage)
+- [Getting started](#getting-started)
+- [Concept and scope](#concept-and-scope)
+- [Usage](#usage)
+- [What this package does not do](#what-this-package-does-not-do)
 
-[Changelog](CHANGELOG.md)
+See also: [Changelog](CHANGELOG.md)
 
-## getting started ##
+## Getting started
 
-This guide assumes, you are familiar with the use of [npm](https://npmjs.com "Homepage of npm").
+This guide assumes familiarity with npm, Grunt, and JSDoc-based documentation workflows.
 
-<code>npm install dmd-grunt-jsdoc2md --save-dev</code>
+Install the package as a development dependency:
 
-The grunt plugin <code>grunt-jsdoc2md</code> is a dependant of this dmd plugin.
+```
+npm install dmd-grunt-jsdoc2md --save-dev
+```
 
-## usage ##
+This package is designed to be used together with `grunt-jsdoc2md`, which must already be part of your build setup.
 
-<code>dmd-grunt-jsdoc2md</code> is used, if <code>grunt-jsdoc2md</code> is configured to
-generate one markdownfile for each sourcefile found within a directory tree.  
-After all markdowns have been written, all jsdoc metadata of all sourcefiles is enriched,
-aggregated and passed to <code>dmd-grunt-jsdoc2md</code> for writing an indexfile, which
-will link (glue) all markdownfiles together.  
+## Concept and scope
 
-Imagine the following directory structure for your source files:  
+When using `grunt-jsdoc2md`, it is common to generate **one Markdown file per source file**. While this scales well for larger codebases, it leaves the generated documentation without a single, global entry point.
+
+`dmd-grunt-jsdoc2md` addresses this gap by providing:
+
+- additional **dmd helpers**
+- a set of **Handlebars partials**
+
+that are executed during the dmd render phase. These templates have access to the **entire JSDoc symbol model** and can therefore generate a **global API index** that links all generated Markdown files together.
+
+The index is symbol-based (modules and their members), not file-based, and relies entirely on the metadata and link targets already provided by dmd and jsdoc-to-markdown.
+
+## Usage
+
+`dmd-grunt-jsdoc2md` is used implicitly by `grunt-jsdoc2md` when configured to generate an index file.
+
+Example source structure:
 
 ```
 --+ src
@@ -42,30 +60,31 @@ Imagine the following directory structure for your source files:
      + subdir2file1.js
 ```
 
-Being glued together by a <code>grunt-jsdoc2md</code> configuration like:  
-(Extract from gruntfile.js)
+Corresponding `grunt-jsdoc2md` configuration (excerpt from `Gruntfile.js`):
 
 ```json
+{
   "jsdoc2md": {
     "target0": {
-      "src":      "src/**/*.js",
-      "dest":     "docs/apidir/",
+      "src": "src/**/*.js",
+      "dest": "docs/apidir/",
       "options": {
-        "index":  {
+        "index": {
           "dest": "docs/api.md"
         }
       }
     }
   }
+}
 ```
 
-Which will produce the following output:
+This configuration results in:
 
 ```
 --+ docs
-  + api.md         <= this is the index file (s.a.: "docs/api.md")
+  + api.md          <= global API index
   |
-  + apidir         <= the api markdown root  (s.a.: "docs/apidir")
+  + apidir          <= per-file API documentation
     + file1.md
     + file2.md
     + subdir1
@@ -75,6 +94,26 @@ Which will produce the following output:
        + subdir2file1.md
 ```
 
-The file api.md will hold a listing of all modules listed above.
-The modules are correctly linked, so you can navigate from the index file
-to each of the submodules.
+During the render process:
+
+1. `grunt-jsdoc2md` builds the complete JSDoc symbol model.
+2. Per-file Markdown documents are rendered.
+3. dmd renders an additional index template provided by this package.
+4. The resulting `api.md` links to all documented modules and their members.
+
+The index can be rendered in different formats (grouped, list-based, or tabular), depending on the configured dmd options.
+
+## What this package does not do
+
+To avoid misunderstandings, this package intentionally does **not**:
+
+- parse source code
+- collect or aggregate JSDoc metadata itself
+- generate or post-process Markdown files
+- manage file paths or links manually
+
+All links, anchors, and symbol relationships are derived directly from dmd and jsdoc-to-markdown.
+
+---
+
+In short, `dmd-grunt-jsdoc2md` is a focused dmd extension that leverages the global render context to provide a single, navigable API index for multi-file JSDoc-based documentation.
