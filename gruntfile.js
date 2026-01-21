@@ -10,10 +10,14 @@ const strings       = require( "./.conf/strings" );
 const env = {
   BUILDDIR:     `${ strings.BUILD }`,
   CONFDIR:      `${ strings.DOT   }${ strings.CONF }`,
+  COVERAGEDIR:  path.join( `${ strings.DIST }`, `${ strings.COVERAGE }` ),
   DISTDIR:      `${ strings.DIST  }`,
   LIBDIR:       path.join( `${ strings.SRC   }`, `${ strings.LIB }`     ),
   SRCDIR:       `${ strings.SRC   }`,
   STRINGS:      strings,
+  TEMPLATEDIR:  path.join( `${ strings.SRC  }`, `${ strings.TEST  }`, `${ strings.TEMPLATE }` ),
+  TESTDIR:      path.join( `${ strings.SRC  }`, `${ strings.TEST  }`, `${ strings.ANY }` ),
+  TMPDIR:       path.join( `${ strings.SRC  }`, `${ strings.TEST  }`, `${ strings.TMP }` )
 };
 
 const GRUNTCONFDIR = path.join( process.cwd(), env.CONFDIR, strings.GRUNT );
@@ -24,8 +28,8 @@ module.exports = function( grunt ) {
   require( "load-grunt-tasks"  )( grunt );
 
   // run lint and all tests by default before packaging
-  grunt.registerTask( strings.ALL,     [ strings.CHKOUTDATED, strings.BUILD, strings.DIST,
-                                         strings.DEPLOY ]);
+  grunt.registerTask( strings.ALL,     [ strings.CHKOUTDATED, strings.TEST, strings.BUILD,
+                                         strings.DIST,        strings.DEPLOY ]);
 
   // run lint and all tests by default before packaging
   grunt.registerTask( strings.BUILD,   [ strings.ESLINT,      `${ strings.CLEAN }:build`,
@@ -33,6 +37,10 @@ module.exports = function( grunt ) {
                                          strings.JSONFILE,    strings.BUILDRO ]);
 
   grunt.registerTask( strings.BUILDRO, [ strings.ROLLUP  ]);
+
+  // run coverage (required by travis)
+  grunt.registerTask( strings.COVERAGE, [ strings.ESLINT,     strings.CLEAN, strings.MKDIR,
+                                          strings.NYCMOCHA ]);
 
   // run default
   grunt.registerTask( strings.DEFAULT, [ strings.ALL ]);
@@ -43,4 +51,8 @@ module.exports = function( grunt ) {
   // run dist: clean dist and move current.tgz from cwd to dist
   grunt.registerTask( strings.DIST,    [ `${ strings.CLEAN }:dist`, `${ strings.CALL_NPM }:pack` ]);
 
+  // run test
+  grunt.registerTask( strings.TEST,    [ strings.ESLINT,   `${ strings.CLEAN }:test`,
+                                         strings.MKDIR,    `${ strings.COPY  }:test`,
+                                         strings.NYCMOCHA ]);
 };

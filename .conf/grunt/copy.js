@@ -47,6 +47,12 @@ module.exports  = function ( grunt, options ) {
           dest: `${ PKGSDIR }/${ PACKAGE }-${ LATEST  }.${ TGZ }`
         }
       ]
+    },
+    test: {
+      expand: true,
+      cwd:    `${ options.TEMPLATEDIR }/`,
+      src:    `*`,
+      dest:   `${ options.TMPDIR }/`
     }
   }
 };

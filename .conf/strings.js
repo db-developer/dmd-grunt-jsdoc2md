@@ -8,7 +8,6 @@ module.exports = {
   ANY:          "any",
   API:          "api",
   BUILD:        "build",
-  BUILDWP:      "webpack_build",
   BUILDRO:      "rollup_build",
   CALL_NPM:     "call_npm",
   CHKOUTDATED:  "check_outdated",
