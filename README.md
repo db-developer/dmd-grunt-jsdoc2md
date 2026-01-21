@@ -6,8 +6,12 @@ This package does **not** generate documentation by itself. Instead, it extends 
 
 [![npm version](https://img.shields.io/npm/v/dmd-grunt-jsdoc2md?color=blue)](https://www.npmjs.com/package/dmd-grunt-jsdoc2md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![jsdoc](https://img.shields.io/static/v1?label=jsdoc&message=%20api%20&color=blue)](https://jsdoc.app/)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](https://gruntjs.com/)
 [![dependencies](https://img.shields.io/librariesio/release/npm/dmd-grunt-jsdoc2md)](https://libraries.io/)
+![Build & Test](https://github.com/db-developer/dmd-grunt-jsdoc2md/actions/workflows/ci.yml/badge.svg)
+[![codecov](https://codecov.io/gh/db-developer/dmd-grunt-jsdoc2md/branch/master/graph/badge.svg)](https://codecov.io/gh/db-developer/dmd-grunt-jsdoc2md)
+
 
 ## Contents
 
